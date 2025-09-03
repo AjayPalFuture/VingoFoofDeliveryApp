@@ -17,7 +17,10 @@ const app=express()
 const server=http.createServer(app)
 const io=new Server(server,{
      cors: {
-    origin: "http://localhost:5173", // production में specific domain डालना
+    origin: [
+    "http://localhost:5173",
+    "https://foodiedeliveryapp.onrender.com"
+  ],
     methods: ["GET", "POST"],
     credentials: true  
   }
