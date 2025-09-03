@@ -11,44 +11,50 @@ import orderRouter from "./routes/order.routes.js"
 import http from "http"
 import { Server } from "socket.io"
 import socketHandler from "./socket.js"
+
 dotenv.config()
 const port = process.env.PORT || 5000
-const app=express()
-const server=http.createServer(app)
-const io=new Server(server,{
-     cors: {
+
+const app = express()
+const server = http.createServer(app)
+
+// ✅ Socket.IO CORS config
+const io = new Server(server, {
+  cors: {
     origin: [
+      "http://localhost:5173",
+      "https://foodieghar.onrender.com"
+    ],
+    methods: ["GET", "POST"],
+    credentials: true,
+  }
+})
+
+app.set("io", io)
+
+// ✅ Express CORS config (fix: credentials alag likhna hai)
+app.use(cors({
+  origin: [
     "http://localhost:5173",
     "https://foodieghar.onrender.com"
   ],
-    methods: ["GET", "POST"],
-    credentials: true  
-  }
-})
-app.set("io", io);
-app.use(cors({
-   origin: [
-    "http://localhost:5173",
-     "https://foodieghar.onrender.com",
-    credentials:true
-  ],
+  credentials: true,
 }))
+
 app.use(express.json())
 app.use(cookieParser())
-app.use("/api/auth",authRouter)
-app.use("/api/user",userRouter)
-app.use("/api/shop",shopRouter)
-app.use("/api/item",itemRouter)
-app.use("/api/order",orderRouter)
 
+// ✅ Routes
+app.use("/api/auth", authRouter)
+app.use("/api/user", userRouter)
+app.use("/api/shop", shopRouter)
+app.use("/api/item", itemRouter)
+app.use("/api/order", orderRouter)
 
-
+// ✅ Socket.IO handler
 socketHandler(io)
 
-
-
-
-server.listen(port,()=>{
-    console.log(`server started at ${port}`)
-    connectDb()
+server.listen(port, () => {
+  console.log(`🚀 Server started at port ${port}`)
+  connectDb()
 })
