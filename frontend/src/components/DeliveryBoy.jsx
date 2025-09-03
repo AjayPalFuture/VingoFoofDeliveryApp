@@ -36,7 +36,7 @@ export default function DeliveryBoy() {
 
           try {
             await axios.post(
-              `${serverUrl}/api/user/update-location`,
+              `${serverUrl}/api/order/update-location`,
               {
                 latitude: newLoc.lat,
                 longitude: newLoc.lng,
