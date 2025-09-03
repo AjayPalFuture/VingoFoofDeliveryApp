@@ -24,7 +24,8 @@ const io = new Server(server, {
     origin: [
       "http://localhost:5173",
       "https://foodieghar.onrender.com",
-      "https://foodieghar-hts9.onrender.com"
+      "https://foodieghar-hts9.onrender.com",
+      "https://zaykabox.onrender.com"
     ],
     methods: ["GET", "POST"],
     credentials: true,
@@ -38,7 +39,8 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "https://foodieghar.onrender.com",
-    "https://foodieghar-hts9.onrender.com"
+    "https://foodieghar-hts9.onrender.com",
+    "https://zaykabox.onrender.com"
   ],
   credentials: true,
 }))
