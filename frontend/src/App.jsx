@@ -27,8 +27,7 @@ import updateLocation from './hooks/updateLocation'
 import TrackOrderPage from './pages/TrackOrderPage'
 import MyDeliveredOrders from './pages/MyDeliveredOrders'
 import ShopItems from './pages/ShopItems'
-export const serverUrl="http://localhost:8000"
-
+export const serverUrl="https://vingofooddeliveryapp.onrender.com"+
 function App() {
   const {userData,allShops,socket}=useSelector(state=>state.user)
  
