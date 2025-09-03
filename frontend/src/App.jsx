@@ -27,7 +27,7 @@ import updateLocation from './hooks/updateLocation'
 import TrackOrderPage from './pages/TrackOrderPage'
 import MyDeliveredOrders from './pages/MyDeliveredOrders'
 import ShopItems from './pages/ShopItems'
-export const serverUrl="https://zaykaboxaj.onrender.com"
+export const serverUrl="https://krishubackend.onrender.com"
 
 function App() {
   const {userData,allShops,socket}=useSelector(state=>state.user)
