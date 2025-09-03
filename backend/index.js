@@ -22,7 +22,9 @@ const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
     origin: [
-      "http://localhost:5173",
+      // "http://localhost:5173",
+     "https://super-sawine-febf68.netlify.app"
+
     
     ],
     methods: ["GET", "POST"],
@@ -35,7 +37,8 @@ app.set("io", io)
 // ✅ Express CORS config (fix: credentials alag likhna hai)
 app.use(cors({
   origin: [
-    "http://localhost:5173",
+    // "http://localhost:5173",
+       "https://super-sawine-febf68.netlify.app"
    
   ],
   credentials: true,
