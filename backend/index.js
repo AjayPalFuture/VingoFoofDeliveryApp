@@ -28,6 +28,7 @@ const io=new Server(server,{
 app.set("io", io);
 app.use(cors({
     origin:"http://localhost:5173",
+     "https://foodiedeliveryapp.onrender.com"
     credentials:true
 }))
 app.use(express.json())
