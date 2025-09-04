@@ -23,7 +23,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       // "http://localhost:5173",
-       "https://zaykabox.onrender.com"
+       "https://vingofooddelivery.onrender.com"
 
     
     ],
@@ -38,7 +38,7 @@ app.set("io", io)
 app.use(cors({
   origin: [
     // "http://localhost:5173",
-     "https://zaykabox.onrender.com"
+  "https://vingofooddelivery.onrender.com"
    
   ],
   credentials: true,
